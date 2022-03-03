@@ -12,6 +12,7 @@ namespace GuniKitchen_Final.Models
     public class RegisterUser : IdentityUser<Guid>
     {
 
+
         [Display(Name = "Display Name")]
         [Required]
         [StringLength(60)]
