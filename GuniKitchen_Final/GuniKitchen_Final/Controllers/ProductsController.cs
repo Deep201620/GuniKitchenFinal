@@ -66,16 +66,7 @@ namespace GuniKitchen_Final.Controllers
         {
             if (ModelState.IsValid)
             {
-                //Saving image to wwwroot/Images folder
-                string wwwrootpath = _hostEnvironment.WebRootPath;
-                string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
-                string fileExtension = Path.GetExtension(product.ImageFile.FileName);
-                product.ProductImage = fileName = fileName + DateTime.Now.ToString("yymmss") + fileExtension;
-                string path = Path.Combine(wwwrootpath + "/Image/", fileName);
-                using (var fileStream = new FileStream(path, FileMode.Create))
-                {
-                    await product.ImageFile.CopyToAsync(fileStream);
-                }
+                
                 //Insert record
                 _context.Add(product);
                 await _context.SaveChangesAsync();
