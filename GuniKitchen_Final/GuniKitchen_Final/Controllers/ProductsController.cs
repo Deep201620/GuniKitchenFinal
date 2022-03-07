@@ -53,8 +53,7 @@ namespace GuniKitchen_Final.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            Product product = new Product();
-            ViewData["CategoryName"] = product.category.CategoryName;
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             return View();
         }
 

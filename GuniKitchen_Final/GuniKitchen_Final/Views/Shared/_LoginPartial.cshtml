@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Identity;
 @inject SignInManager<RegisterUser> SignInManager
 @inject UserManager<RegisterUser> UserManager
 
@@ -7,7 +7,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
      <li class="nav-item">
-        <a  class="nav-link text-light" asp-controller="Home" asp-action="Edit"  title="Manage">Manage Profile</a>
+        <a  class="nav-link text-light"  asp-action="Edit"  title="Manage">Manage Profile</a>
     </li>
      <li class="nav-item">
         <a  class="nav-link text-light"  title="Manage">Shopping Cart</a>
@@ -15,7 +15,7 @@
      <li class="nav-item">
         <a  class="nav-link text-light" asp-controller="Products" asp-action="Index" title="Manage">My Orders</a>
     </li>
-        <li class="nav-item">
+        <li class="nav-item">.
         <a  class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
     </li>
     <li class="nav-item">
