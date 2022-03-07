@@ -30,9 +30,7 @@ namespace GuniKitchen_Final.Models
         [Required]
         public int ProdStock { get; set; }
 
-        [Display(Name = "Upload Product Image")]
-        [NotMapped]
-        public IFormFile ImageFile { get; set; }
+
 
         [Display(Name = "Category Id")]
         [ForeignKey(nameof(Product.category))]
