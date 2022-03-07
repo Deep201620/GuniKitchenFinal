@@ -45,5 +45,40 @@ namespace GuniKitchen_Final.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+
+            var product = await _context.registerUsers.FindAsync(id); 
+            if (product == null)
+            {
+                return NotFound();
+            }
+            //ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
+            return View(product);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, [Bind("Email", "DisplayName", "PhoneNumber", "DateOfBirth", "Gender")] RegisterUser registerUser)
+        {
+            if (id != registerUser.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                    _context.Update(registerUser);
+                    await _context.SaveChangesAsync();
+                
+                
+                return RedirectToAction(nameof(Index));
+            }
+            //ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
+            return View(registerUser);
+        }
+
+
     }
 }

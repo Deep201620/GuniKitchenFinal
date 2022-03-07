@@ -7,16 +7,16 @@
 @if (SignInManager.IsSignedIn(User))
 {
      <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="" asp-page="" title="Manage">Manage Profile</a>
+        <a  class="nav-link text-light" asp-controller="Home" asp-action="Edit"  title="Manage">Manage Profile</a>
     </li>
      <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="" asp-page="" title="Manage">Shopping Cart</a>
+        <a  class="nav-link text-light"  title="Manage">Shopping Cart</a>
     </li>
      <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index" title="Manage">My Orders</a>
+        <a  class="nav-link text-light" asp-controller="Products" asp-action="Index" title="Manage">My Orders</a>
     </li>
         <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+        <a  class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
     </li>
     <li class="nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
@@ -28,10 +28,10 @@
 else
 {
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
 </ul>
